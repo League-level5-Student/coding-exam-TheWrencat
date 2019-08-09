@@ -34,7 +34,7 @@ public class CodingExamB {
 			do{
 				temp = br.readLine();
 				ctr++;
-				if (temp.substring(0, 8).equals("//: TODO")) {
+				if (temp.substring(0, 8).equals("//: TODO")){
 					log += ctr + ": " + temp + "\n";
 				}
 			}while(temp != null);
