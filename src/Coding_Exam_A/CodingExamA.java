@@ -40,27 +40,31 @@ public class CodingExamA {
 			r.setSpeed(6);
 			color.toLowerCase();
 			if(color.equals("red")) {
-				r.setPenColor(200, 0, 0);;
+				r.setPenColor(200, 0, 0);
 			}
 			if(color.equals("green")) {
-				r.setPenColor(0, 200, 0);;
+				r.setPenColor(0, 200, 0);
 			}
 			if(color.equals("blue")) {
-				r.setPenColor(0, 0, 200);;
+				r.setPenColor(0, 0, 200);
 			}
+			r.penDown();
+			
 			t = new Thread(()->{
 				r.penDown();
 				for(int j = 0; j< sideCount; j++) {
-					r.move(500/sideCount);
+					r.move(300 / sideCount);
 					r.turn(360/sideCount);
 				}
+				r.penUp();
+				r.move(500);
 			
 			});
+				t.start();
+			
 		}
 
-		for(int i = 0; i < robotCount; i++) {
-			t.start();
-		}
+		
 
 	}
 }
