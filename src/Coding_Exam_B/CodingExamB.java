@@ -39,8 +39,8 @@ public class CodingExamB {
 				
 				ctr++;
 				
-				
-				for (int i = 0; i < line.length() -; i++) {
+				//something is wrong with substring
+				for (int i = 0; i < line.length() - 8; i++) {
 					
 					String sectionCheck = line.substring(i, i + 1);
 					if (sectionCheck.equals("//TODO:")) {
