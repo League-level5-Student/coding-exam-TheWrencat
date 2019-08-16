@@ -1,6 +1,5 @@
 package Coding_Exam_B.classes;
 import java.awt.Color;
-
 public class RayTracer {
 
 	public static Color backgroundColor = new Color(0);

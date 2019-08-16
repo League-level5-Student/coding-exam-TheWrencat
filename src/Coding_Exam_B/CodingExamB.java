@@ -26,20 +26,35 @@ public class CodingExamB {
 		 */
 		String log = "File: " + fileName + "\n";
 		int ctr = 0;
-		String temp = "";
+		String line = "";
 		try {
 			FileReader reader = new FileReader(fileName);
 			BufferedReader br = new BufferedReader(reader);
-
-			do{
-				temp = br.readLine();
+			
+			line = br.readLine() + "";
+			while ( line != null ){
+//				System.out.println(line);
+				
+				
+				
 				ctr++;
-				if (temp.substring(0, 8).equals("//: TODO")){
-					log += ctr + ": " + temp + "\n";
+				
+				
+				for (int i = 0; i < line.length() -; i++) {
+					
+					String sectionCheck = line.substring(i, i + 1);
+					if (sectionCheck.equals("//TODO:")) {
+						System.out.println("hey");
+						log += ctr + ": " + line + "\n";
+					}
+					System.out.println("loop:" +i);
+					
+					
 				}
-			}while(temp != null);
+				line = br.readLine();
+			}
 			System.out.println(log);
-
+			br.close();
 		} catch (
 
 		Exception e) {
@@ -51,9 +66,9 @@ public class CodingExamB {
 
 	public static void main(String[] args) {
 		String finalLogString = getLoggingInfo("src/Coding_Exam_B/classes/Camera.java");
-		finalLogString += getLoggingInfo("src/Coding_Exam_B/classes/RayTracedImageViewer.java");
-		finalLogString += getLoggingInfo("src/Coding_Exam_B/classes/RayTracer.java");
-		finalLogString += getLoggingInfo("src/Coding_Exam_B/classes/Vector3.java");
+//		finalLogString += getLoggingInfo("src/Coding_Exam_B/classes/RayTracedImageViewer.java");
+//		finalLogString += getLoggingInfo("src/Coding_Exam_B/classes/RayTracer.java");
+//		finalLogString += getLoggingInfo("src/Coding_Exam_B/classes/Vector3.java");
 
 		/*
 		 * 2. Write the finalLogString to a file called TODO_Log.txt. The file should
