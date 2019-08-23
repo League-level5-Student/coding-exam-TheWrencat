@@ -32,28 +32,23 @@ public class CodingExamB {
 			BufferedReader br = new BufferedReader(reader);
 			
 			line = br.readLine() + "";
-			while ( line != null ){
-//				System.out.println(line);
-				
-				
+			while (line != null) {
+				line = line.trim();
 				
 				ctr++;
-				
-				//something is wrong with substring
+
+
 				for (int i = 0; i < line.length() - 8; i++) {
-					
-					String sectionCheck = line.substring(i, i + 1);
+
+					String sectionCheck = line.substring(i, i + 7);
 					if (sectionCheck.equals("//TODO:")) {
-						System.out.println("hey");
 						log += ctr + ": " + line + "\n";
 					}
-					System.out.println("loop:" +i);
-					
-					
+
 				}
 				line = br.readLine();
 			}
-			System.out.println(log);
+			System.out.println("Log: " + log);
 			br.close();
 		} catch (
 
@@ -66,9 +61,9 @@ public class CodingExamB {
 
 	public static void main(String[] args) {
 		String finalLogString = getLoggingInfo("src/Coding_Exam_B/classes/Camera.java");
-//		finalLogString += getLoggingInfo("src/Coding_Exam_B/classes/RayTracedImageViewer.java");
-//		finalLogString += getLoggingInfo("src/Coding_Exam_B/classes/RayTracer.java");
-//		finalLogString += getLoggingInfo("src/Coding_Exam_B/classes/Vector3.java");
+		finalLogString += getLoggingInfo("src/Coding_Exam_B/classes/RayTracedImageViewer.java");
+		finalLogString += getLoggingInfo("src/Coding_Exam_B/classes/RayTracer.java");
+		finalLogString += getLoggingInfo("src/Coding_Exam_B/classes/Vector3.java");
 
 		/*
 		 * 2. Write the finalLogString to a file called TODO_Log.txt. The file should
@@ -77,6 +72,7 @@ public class CodingExamB {
 		try {
 			FileWriter writer = new FileWriter("TODO_Log.txt");
 			writer.append(finalLogString);
+			writer.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
